@@ -1,0 +1,198 @@
+/* all css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Verdana', sans-serif;
+    margin-left: 240px;
+    margin-right: 240px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    display: inline-block;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fae013;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.btn-send {
+    display: flex;
+    align-items: center;
+    padding: 5px 30px;
+    font-size: 24px;
+    background-color: #fae013;
+    color: black;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.btn-send:hover {
+    background-color: white;
+    border: 3px solid #fae013;
+}
+
+.btn-send img {
+    width: 63px;
+    height: 63px;
+    margin-left: 10px;
+}
+
+/* section header */
+
+header {
+    margin-top: 70px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header li {
+    font-size: 24px;
+}
+
+/* section main */
+
+.main {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 64px;
+    width: 800px;
+    height: auto;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    margin-top: 15px;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+    margin-top: 64px;   
+    font-weight: normal;
+    font-size: 36px;
+    width: 600px;
+    height: auto;
+    text-align: center;
+    color: #484848;
+}
+
+.main button {
+    margin-top: 125px;
+}
+
+/* section what-is */
+
+.what-is {
+    margin-top: 250px;
+}
+
+h4 {
+    margin: 0;
+    padding: 0; 
+    font-weight: normal;
+    font-size: 36px;
+}
+
+/* section modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close-btn {
+    font-size: 30px;
+    color: #aaa;
+    float: right;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.alert {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    font-family: 'Verdana', sans-serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alert::before {
+    content: '✔️';
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.alert {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert {
+    animation: fadeIn 0.5s ease-in-out;
+}
