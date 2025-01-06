@@ -1,9 +1,11 @@
 // modal
-const openModalBtn = document.getElementById('openModalBtn');
+const openModalBtns = document.querySelectorAll('.openModalBtn');
 const modal = document.getElementById('modalForm');
 const closeModalBtn = document.getElementById('closeModalBtn');
-openModalBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
+openModalBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
 });
 closeModalBtn.addEventListener('click', () => {
     modal.style.display = 'none';

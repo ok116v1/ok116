@@ -62,7 +62,7 @@ header {
     margin-top: 70px;
 }
 
-ul {
+header ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -130,8 +130,97 @@ h3 {
 h4 {
     margin: 0;
     padding: 0; 
+    margin-bottom: 40px;
     font-weight: normal;
     font-size: 36px;
+}
+
+.what-is p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 60px;
+    width: 700px;
+    font-size: 20px;
+}
+
+.what-is ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.what-is li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.what-is li img {
+    padding-right: 15px;
+}
+
+.what-is button {
+    margin-top: 45px;
+}
+
+.container-video {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+video {
+    width: 600px;
+}
+
+/* section steps */
+
+.steps h4 {
+    margin-top: 250px;
+    text-align: center;
+}
+
+h5 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.steps p {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.step-1, .step-3, .step-5 {
+    display: flex;
+    align-items: center;
+}
+
+.step-text-1, .step-text-3, .step-text-5 {
+    padding-left: 10px;
+}
+
+.step-2, .step-4 {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.step-text-2, .step-text-4 {
+    padding-right: 10px;
+    text-align: right;
+}
+
+.step-text-2 h5, .step-text-4 h5 {
+    text-align: right;
+}
+
+.step-5 button {
+    margin-left: 170px;
 }
 
 /* section modal */
@@ -168,6 +257,8 @@ h4 {
     color: black;
     text-decoration: none;
 }
+
+/* section session success */
 
 .alert {
     padding: 15px;

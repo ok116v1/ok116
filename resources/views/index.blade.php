@@ -23,7 +23,7 @@
     <h1>Оформление сотрудников вне штата</h1>
     <h2>Работаем по всему Татарстану</h2>
     <h3>Сокращение расходов предприятия до 1 млн. в год!</h3>
-    <button class="btn-send" id="openModalBtn">Оставить заявку<img src="{{ asset('img/btn-email.svg') }}"></button>
+    <button class="btn-send openModalBtn">Оставить заявку<img src="{{ asset('img/btn-email.svg') }}"></button>
 </section>
 
 <div class="modal" id="modalForm">
@@ -79,6 +79,60 @@
 Сотрудники работают у заказчика, но числятся в штате агентства-
 аутстаффера. Если сотрудник не подходит по каким-либо причинам, 
 арендатор просит заменить работника.</p>
+    <h4>Преимущества Аутстаффинга</h4>
+    <div class="container-video">
+        <ul>
+            <li><img src="{{ asset('img/green-check.svg') }}">Разгрузка собственного штата, например, бухгалтеров и HR</li>
+            <li><img src="{{ asset('img/green-check.svg') }}">Снижение расходов</li>
+            <li><img src="{{ asset('img/green-check.svg') }}">Отсутствие миграционных рисков</li>
+            <li><img src="{{ asset('img/green-check.svg') }}">Увеличение штата при соблюдении требований УСН</li>
+            <li><img src="{{ asset('img/green-check.svg') }}">Упрощение процессов управления персоналом</li>
+        </ul>
+        <video muted loop autoplay>
+            <source src="{{ asset('img/example-video.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+    <button class="btn-send openModalBtn">Оставить заявку<img src="{{ asset('img/btn-email.svg') }}"></button>
+</section>
+
+<section class="steps">
+    <h4>Шаги наших клиентов</h4>
+    <div class="step-1">
+        <img src="{{ asset('img/step-1.svg') }}">
+        <div class="step-text-1">
+            <h5>Обращение в нашу организацию</h5>
+            <p>Заполните форму или свяжитесь с нами напрямую 8 888 888-88-88</p>
+        </div>
+    </div>
+    <div class="step-2">
+        <img src="{{ asset('img/step-2.svg') }}">
+        <div class="step-text-2">
+            <h5>Консультация с нами</h5>
+            <p>Выбирайте время и получайте ответы на интересующие вас вопросы  </p>
+        </div>
+    </div>
+    <div class="step-3">
+        <img src="{{ asset('img/step-3.svg') }}">
+        <div class="step-text-3">
+            <h5>Заключение договора</h5>
+            <p>Подготовка всех необходимых документов</p>
+        </div>
+    </div>
+    <div class="step-4">
+        <img src="{{ asset('img/step-4.svg') }}">
+        <div class="step-text-4">
+            <h5>Уменьшение нагрузки Вашей компании  </h5>
+            <p>Возьмем на себя кадровый вопрос </p>
+        </div>
+    </div>
+    <div class="step-5">
+        <img src="{{ asset('img/step-5.svg') }}">
+        <div class="step-text-5">
+            <h5>Сокращение затрат</h5>
+            <p>Экономия более 80 тыс. руб. в год за одного человека</p>
+        </div>
+        <button class="btn-send openModalBtn">Оставить заявку<img src="{{ asset('img/btn-email.svg') }}"></button>
+    </div>
 </section>
 
 <script src="{{ asset('js/main.js') }}"></script>
