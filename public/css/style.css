@@ -4,8 +4,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Verdana', sans-serif;
-    margin-left: 240px;
-    margin-right: 240px;
+    /*margin-left: 240px;
+    margin-right: 240px;*/
 }
 
 a {
@@ -40,7 +40,7 @@ a:hover::after {
     font-size: 24px;
     background-color: #fae013;
     color: black;
-    border: none;
+    border: 3px solid #fae013;
     border-radius: 35px;
     cursor: pointer;
 }
@@ -60,6 +60,8 @@ a:hover::after {
 
 header {
     margin-top: 70px;
+    margin-left: 240px;
+    margin-right: 240px;
 }
 
 header ul {
@@ -75,6 +77,7 @@ header ul {
 
 header li {
     font-size: 24px;
+    
 }
 
 /* section main */
@@ -85,6 +88,8 @@ header li {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-left: 240px;
+    margin-right: 240px;
 }
 
 h1 {
@@ -125,6 +130,8 @@ h3 {
 
 .what-is {
     margin-top: 250px;
+    margin-left: 240px;
+    margin-right: 240px;
 }
 
 h4 {
@@ -174,7 +181,10 @@ video {
 }
 
 /* section steps */
-
+.steps{
+    margin-left: 240px;
+    margin-right: 240px;
+}
 .steps h4 {
     margin-top: 250px;
     text-align: center;
@@ -286,4 +296,246 @@ h5 {
 
 .alert {
     animation: fadeIn 0.5s ease-in-out;
+}
+
+.about {
+    height: 400px;
+    padding: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex; /* Используем Flexbox для центрирования */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрируем элементы по горизонтали */
+    justify-content: center; /* Центрируем элементы по вертикали */
+    text-align: center; /* Центрируем текст */
+    background-color: #FAE013; /* Желтый фон */
+}
+
+.about ul {
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+.about li {
+    display: flex; /* Используем Flexbox для расположения элементов в строку */
+    align-items: center; /* Центрируем элементы по вертикали */
+    font-size: 32px;
+}
+.about li p{
+    margin-left: 20px;
+}
+
+
+.why-we {
+    text-align: center; /* Центрируем текст */
+    margin-top: 30px;
+}
+
+.why-we ul {
+    margin-top: 130px;
+    display: flex; /* Используем Flexbox для расположения элементов в строку */
+    justify-content: space-around; /* Центрируем карточки в контейнере */
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+.why-we li {
+    margin: 0 15px; /* Добавляем отступы между элементами списка */
+    max-width: 380px; /* Ограничиваем максимальную ширину карточки */
+    text-align: center; /* Центрируем текст внутри карточки */
+    font-size: 32px;
+}
+
+.why-we img {
+    max-width: 100%; /* Делаем изображение адаптивным */
+    height: auto; /* Сохраняем пропорции изображения */
+}
+
+
+
+
+#callbackForm {
+    background-color: #FAE013; /* Задний фон желтый */
+    border-radius: 20px; /* Скругление углов */
+    padding: 20px; /* Отступы по всему блоку */
+    width: 1200px; /* Ширина блока */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для визуального восприятия */
+    display: flex; /* Flexbox для выравнивания */
+    justify-content: space-around; /* Пространство между входами и текстом/кнопкой */
+}
+
+h4 {
+    text-align: center; /* Заголовок по центру */
+}
+.callback {
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание */
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали (если необходимо) */
+}
+
+
+.form-input {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column; /* Поля ввода вертикально */
+}
+
+.form-input input {
+    margin-bottom: 10px; /* Отступ между полями ввода */
+    padding: 10px; /* Отступ внутри полей */
+    border: 1px solid #ccc; /* Цвет границы */
+    border-radius: 5px; /* Скругление углов полей ввода */
+    width: 500px;
+}
+
+.form-info {
+    font-size: 24px;
+    text-align: center; /* Текст и кнопка по центру */
+}
+
+.form-info p {
+    width: 400px;
+}
+
+.callback button {
+    display: flex;
+    align-items: center;
+    padding: 5px 30px;
+    font-size: 24px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.callback button img {
+    width: 63px;
+    height: 63px;
+    margin-left: 10px;
+}
+
+/* Эффекты при наведении на кнопку */
+.callback button:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+
+
+@media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        text-align: center; /* Выравниваем содержимое заголовка по центру */
+    }
+
+    header ul {
+        flex-direction: column;  /* Переключаем на вертикальное отображение */
+        align-items: center;      /* Центрируем элементы */
+        padding: 0;               /* Убираем отступы */
+    }
+
+    header li {
+        font-size: 18px;  /* Уменьшаем размер шрифта на мобильных */
+        margin: 10px 0;   /* Добавляем отступы между элементами списка */
+    }
+
+    .main {
+        align-items: center; /* Центрируем содержимое основной секции */
+    }
+
+    .main h1 {
+        font-size: 32px;  /* Уменьшаем размер заголовка H1 */
+        width: 100%;      /* Заголовок занимает 100% ширины */
+        text-align: center; /* Центрируем текст заголовка */
+    }
+
+    .main h2 {
+        font-size: 24px;  /* Уменьшаем размер заголовка H2 */
+        text-align: center; /* Центрируем текст заголовка */
+    }
+
+    .main h3 {
+        font-size: 20px;  /* Уменьшаем размер заголовка H3 */
+        width: 90%;       /* Уменьшаем ширину H3 */
+        text-align: center; /* Центрируем текст заголовка */
+    }
+
+    .what-is p {
+        width: 90%; /* Уменьшаем ширину параграфа для мобильных */
+        text-align: center; /* Центрируем текст параграфа */
+    }
+
+    .container-video {
+        flex-direction: column; /* Меняем направление на вертикальное */
+        align-items: center;     /* Центрируем содержимое */
+        justify-content: center;  /* Центрируем содержимое по вертикали */
+    }
+
+    video {
+        width: 100%; /* Видео по ширине экрана */
+        height: auto; /* Сохраняем пропорции */
+    }
+
+    .btn-send {
+        padding: 10px 20px; /* Уменьшаем отступы для кнопки */
+        font-size: 20px;     /* Уменьшаем размер шрифта */
+        margin: 20px 0;      /* Добавляем отступ сверху и снизу */
+    }
+
+    .form-input input {
+        width: 90%; /* Поля ввода занимают 90% ширины экрана */
+        margin: 10px 0; /* Добавляем отступ между полями ввода */
+    }
+
+    #callbackForm {
+        width: 90%; /* Ширина формы на 90% для мобильных */
+        padding: 10px; /* Уменьшаем внутренние отступы */
+        display: flex; /* Используем Flexbox */
+        flex-direction: column; /* Вертикальное расположение */
+        align-items: center; /* Центруем по горизонтали */
+    }
+
+    .alert {
+        font-size: 16px; /* Уменьшаем размер шрифта */
+        text-align: center; /* Центрируем текст алерта */
+        margin: 10px 0; /* Убираем отступы */
+    }
+
+    .why-we ul {
+        flex-direction: column; /* Переключаем на вертикальное направление карточек */
+        align-items: center;     /* Центрируем элементы */
+        padding: 0;              /* Убираем отступы */
+        margin: 0;               /* Убираем отступы */
+    }
+
+    .why-we li {
+        margin: 20px 0; /* Добавляем отступы между карточками */
+        max-width: 100%; /* Сделаем карточки на 100% ширины контейнера */
+        text-align: center; /* Центрируем текст внутри карточки */
+        font-size: 32px;
+    }
+
+    .why-we img {
+        max-width: 100%; /* Делаем изображение адаптивным */
+        height: auto;    /* Сохраняем пропорции изображения */
+    }
+    .about h4{
+        font-size: 30px;
+    }
+    .about p {
+        font-size: 20px;
+    }
+    .step-5 .btn-send {
+        display: none; /* Скрываем кнопку */
+    }
+
+    .header, .main, .steps{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
 }
