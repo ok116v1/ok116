@@ -17,29 +17,37 @@ window.addEventListener('click', (event) => {
 });
 
 // new string for form
-document.addEventListener('DOMContentLoaded', function() {
-    const addButton = document.querySelector('.add-specialty-btn');
-    const specializationsContainer = document.getElementById('specializationsContainer');
-    
-    addButton.addEventListener('click', function() {
-        const newGroup = document.createElement('div');
-        newGroup.classList.add('specialty-group');
-        
-        newGroup.innerHTML = `
-            <select name="specialization" required>
-                <option value="Специальность 1">Специальность 1</option>
-                <option value="Специальность 2">Специальность 2</option>
-                <option value="Специальность 3">Специальность 3</option>
-            </select>
-            <input type="number" name="quantity" placeholder="Количество" required min="1">
-            <button type="button" class="remove-specialty-btn">Удалить</button>
-        `;
-        
-        specializationsContainer.appendChild(newGroup);
-        
-        const removeButton = newGroup.querySelector('.remove-specialty-btn');
-        removeButton.addEventListener('click', function() {
-            specializationsContainer.removeChild(newGroup);
-        });
+document.addEventListener("DOMContentLoaded", function() {
+    const maxSpecialties = 5;
+    const specializationsContainer = document.getElementById("specializationsContainer");
+    const maxSpecialtiesError = document.getElementById("maxSpecialtiesError");
+
+    specializationsContainer.addEventListener("click", function(e) {
+        if (e.target.classList.contains("add-specialty-btn")) {
+            const specialtyGroups = specializationsContainer.querySelectorAll(".specialty-group");
+            if (specialtyGroups.length < maxSpecialties) {
+                const newSpecialtyGroup = document.createElement("div");
+                newSpecialtyGroup.classList.add("specialty-group");
+                newSpecialtyGroup.innerHTML = `
+                    <select name="specialization[]" required>
+                        @foreach($specializations as $specialization)
+                            <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
+                        @endforeach
+                    </select>
+                    <input type="number" name="quantity[]" placeholder="Количество" required min="1">
+                    <button type="button" class="remove-specialty-btn">-</button>
+                `;
+                specializationsContainer.appendChild(newSpecialtyGroup);
+                maxSpecialtiesError.style.display = 'none'; // Скрываем сообщение об ошибке
+            } else {
+                maxSpecialtiesError.style.display = 'block'; // Показываем сообщение об ошибке
+            }
+        }
+    });
+
+    specializationsContainer.addEventListener("click", function(e) {
+        if (e.target.classList.contains("remove-specialty-btn")) {
+            e.target.closest(".specialty-group").remove(); // Удаляем выбранную группу специальностей
+        }
     });
 });
