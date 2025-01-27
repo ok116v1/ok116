@@ -11,6 +11,7 @@ class CreateSpecializationsTable extends Migration
         Schema::create('specializations', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // Название специальности
+            $table->string('photo_url');
             $table->timestamps();
         });
     }

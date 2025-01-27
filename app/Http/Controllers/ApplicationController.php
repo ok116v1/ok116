@@ -12,13 +12,6 @@ class ApplicationController extends Controller
 {
     public function store(Request $request)
     {
-       
-
-        
-
-        // Подготовка данных для email
-
-    // Убираем валидацию и просто получаем данные из запроса
         $mailData = [
             'name' => $request->input('name'), // Получаем имя
             'surname' => $request->input('surname'), // Получаем фамилию

@@ -478,7 +478,7 @@ input[type="number"]:focus {
     flex-wrap: wrap; /* Позволяет карточкам обтекать */
     gap: 20px; /* Задаем промежуток между карточками */
     max-width: calc(3 * 500px + 2 * 20px); /* Максимальная ширина для 3 карточек, включая gap */
-    margin: 0 auto; /* Центрируем контейнер на странице */
+    margin: auto;
     font-size: 15px;
 }
 
@@ -486,16 +486,21 @@ input[type="number"]:focus {
     border: 5px solid #FAE013; /* Назначить границу */
     border-radius: 30px; /* Сгладить углы */
     padding: 10px; /* Добавить отступы */
-    text-align: center; /* Центровать текст и изображения */
     width: 400px; /* Фиксированная ширина карточки */
     height: 500px; /* Фиксированная высота карточки */
+    margin-top: 30px;
+    text-align: center;
+}
+.specialization-card h5{
+    text-align: center;
+    font-size: 30px;
 }
 
 .specialization-card img {
-    max-width: 50%; /* Изображение вписывается в границы карточки */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
+    width: 400px; /* Автоматическая ширина для сохранения пропорций */
+    height: 300px; /* Автоматическая высота для сохранения пропорций */
     border-radius: 8px; /* Сгладить углы изображения */
 }
-
+/* Общие стили для изображений */
 
 
