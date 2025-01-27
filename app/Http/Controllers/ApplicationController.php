@@ -12,13 +12,6 @@ class ApplicationController extends Controller
 {
     public function store(Request $request)
     {
-       
-
-        
-
-        // Подготовка данных для email
-
-    // Убираем валидацию и просто получаем данные из запроса
         $mailData = [
             'name' => $request->input('name'), // Получаем имя
             'surname' => $request->input('surname'), // Получаем фамилию
@@ -29,11 +22,13 @@ class ApplicationController extends Controller
             'quantities' => $request->input('quantity'), // Получаем количество
         ];
 
+
         // Отправка почты
         Mail::to('zanozared228@gmail.com')->send(new ApplicationSubmitted($mailData));
 
         return redirect()->back()->with('success', 'Заявка успешно отправлена!');
     }
+
 
     public function showIndex()
     {

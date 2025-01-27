@@ -18,12 +18,12 @@
         </nav>
     </header>
 
-<section class="main">
-@if(session('success'))
-<div class='alert'>
-    {{ session('success') }}
-</div>
-@endif
+    <section class="main">
+    @if(session('success'))
+    <div class='alert'>
+        {{ session('success') }}
+    </div>
+    @endif
     <h1>Оформление сотрудников вне штата</h1>
     <h2>Работаем по всему Татарстану и РФ</h2>
     <h3>Наш рабочий персонал работает ежедневно/без выходных/праздничных дней, по 10-11 часов в день</h3>
@@ -54,59 +54,62 @@
     <p> (До 5 спец. в одной заявке)</p>
 
     <div id="specializationsContainer">
-        <div class="specialty-group">
-            <select name="specialization[]" required>
-                @foreach($specializations as $specialization)
-                    <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
-                @endforeach
-            </select>
-            <input type="number" name="quantity[]" placeholder="Количество">
-            
-        </div>
+
+    <div class="specialty-group">
+        <select name="specialization[]">
+            <option value="" disabled selected>Выберите из списка</option> <!-- По умолчанию -->
+            @foreach($specializations as $specialization)
+                <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
+            @endforeach
+        </select>
+        <input type="number" name="quantity[]" placeholder="Количество">
     </div>
+</div>
     <div id="specializationsContainer">
-        <div class="specialty-group">
-            <select name="specialization[]" required>
-                @foreach($specializations as $specialization)
-                    <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
-                @endforeach
-            </select>
-            <input type="number" name="quantity[]" placeholder="Количество">
-        </div>
+    <div class="specialty-group">
+        <select name="specialization[]">
+            <option value="" disabled selected>Выберите из списка</option> <!-- По умолчанию -->
+            @foreach($specializations as $specialization)
+                <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
+            @endforeach
+        </select>
+        <input type="number" name="quantity[]" placeholder="Количество">
     </div>
+</div>
     <div id="specializationsContainer">
-        <div class="specialty-group">
-            <select name="specialization[]" required>
-                @foreach($specializations as $specialization)
-                    <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
-                @endforeach
-            </select>
-            <input type="number" name="quantity[]" placeholder="Количество">
-            
-        </div>
+    <div class="specialty-group">
+        <select name="specialization[]">
+            <option value="" disabled selected>Выберите из списка</option> <!-- По умолчанию -->
+            @foreach($specializations as $specialization)
+                <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
+            @endforeach
+        </select>
+        <input type="number" name="quantity[]" placeholder="Количество">
     </div>
+</div>
     <div id="specializationsContainer">
-        <div class="specialty-group">
-            <select name="specialization[]" required>
-                @foreach($specializations as $specialization)
-                    <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
-                @endforeach
-            </select>
-            <input type="number" name="quantity[]" placeholder="Количество">
-            
-        </div>
+    <div class="specialty-group">
+        <select name="specialization[]">
+            <option value="" disabled selected>Выберите из списка</option> <!-- По умолчанию -->
+            @foreach($specializations as $specialization)
+                <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
+            @endforeach
+        </select>
+        <input type="number" name="quantity[]" placeholder="Количество">
     </div>
+</div>
     <div id="specializationsContainer">
-        <div class="specialty-group">
-            <select name="specialization[]" required>
-                @foreach($specializations as $specialization)
-                    <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
-                @endforeach
-            </select>
-            <input type="number" name="quantity[]" placeholder="Количество">
-            
-        </div>
+    <div class="specialty-group">
+        <select name="specialization[]">
+            <option value="" disabled selected>Выберите из списка</option> <!-- По умолчанию -->
+            @foreach($specializations as $specialization)
+                <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
+            @endforeach
+        </select>
+        <input type="number" name="quantity[]" placeholder="Количество">
     </div>
+</div>
+
     
     
     <p id="maxSpecialtiesError" style="color: red; display: none;">Нельзя добавить больше 5 специальностей.</p>
@@ -121,7 +124,29 @@
 
 
 
-<section class = "our_personal">
+
+<section class="our_personal">
+    <h3>Наш Персонал</h3>
+    <div class="specialization-cards">
+            @foreach($specializations as $specialization)
+                <div class="specialization-card">
+                    <div class="card">
+                        <img src="{{ $specialization->photo_url }}" alt="{{ $specialization->name }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $specialization->name }}</h5>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-send openModalBtn">Оставить заявку</button>
+                    </div>
+                </div>
+                    
+            @endforeach
+        </div>
+
+        <div class="pagination justify-content-center">
+        </div>
+    </div>
 
 </section>
 
@@ -182,11 +207,12 @@
 </section>
 <section class="callback">
     <h4>Закажите обратный звонок для консультации</h4>
-        <form id="callbackForm">
-            <div class="form-input">
-                <input type="text" name="name" placeholder="Имя" required>
-                <input type="text" name="surname" placeholder="Фамилия" required>
-                <input type="tel" name="phone" placeholder="Телефон" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        <form id="callbackForm" action ='/c' method='POST'>
+            @csrf
+            <div class="form-input" >
+                <input type="text" name="callname" placeholder="Имя" required>
+                <input type="text" name="callsurname" placeholder="Фамилия" required>
+                <input type="tel" name="callphone" placeholder="Телефон" required>
             </div>
             <div class="form-info">
                 <p>Мы индивидуально рассчитаем для Вас оптимальный план по оптимизации рассходов на кадры</p>
