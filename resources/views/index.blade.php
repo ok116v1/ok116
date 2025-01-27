@@ -17,6 +17,7 @@
             </ul>
         </nav>
     </header>
+
     <section class="main">
     @if(session('success'))
     <div class='alert'>
@@ -53,6 +54,7 @@
     <p> (До 5 спец. в одной заявке)</p>
 
     <div id="specializationsContainer">
+
     <div class="specialty-group">
         <select name="specialization[]">
             <option value="" disabled selected>Выберите из списка</option> <!-- По умолчанию -->
@@ -107,6 +109,7 @@
         <input type="number" name="quantity[]" placeholder="Количество">
     </div>
 </div>
+
     
     
     <p id="maxSpecialtiesError" style="color: red; display: none;">Нельзя добавить больше 5 специальностей.</p>
@@ -118,6 +121,7 @@
 </form>
     </div>
 </div>
+
 
 
 
@@ -143,6 +147,7 @@
         <div class="pagination justify-content-center">
         </div>
     </div>
+
 </section>
 
 <section class="steps">

@@ -464,6 +464,7 @@ input[type="number"]:focus {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+
 }
 
 .add-specialty-btn:hover {
@@ -502,5 +503,6 @@ input[type="number"]:focus {
     border-radius: 8px; /* Сгладить углы изображения */
 }
 /* Общие стили для изображений */
+
 
 

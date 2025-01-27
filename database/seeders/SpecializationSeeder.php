@@ -15,6 +15,7 @@ class SpecializationSeeder extends Seeder
     public function run(): void
     {
         $specializations = [
+
             
             [
                 'name' => 'Дорожный рабочий',

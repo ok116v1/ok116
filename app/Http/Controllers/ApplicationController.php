@@ -22,11 +22,13 @@ class ApplicationController extends Controller
             'quantities' => $request->input('quantity'), // Получаем количество
         ];
 
+
         // Отправка почты
         Mail::to('zanozared228@gmail.com')->send(new ApplicationSubmitted($mailData));
 
         return redirect()->back()->with('success', 'Заявка успешно отправлена!');
     }
+
 
     public function showIndex()
     {
