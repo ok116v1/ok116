@@ -18,12 +18,14 @@ class CallBackController extends Controller
         ];
         // Отправка почты
         Mail::to('zanozared228@gmail.com')->send(new CallBackSubmitted($callData));
+        Mail::to('ok.116@mail.ru')->send(new ApplicationSubmitted($mailData));
 
         return redirect()->back()->with('success', 'Заявка успешно отправлена!');
     }
     public function index()
     {
         $specializations = Specialization::all(); // Получаем все специальности
-        return view('index', compact('specializations'));
+        $specializationa = Specialization::take(3)->get(); // Получаем только первые 3 специальности
+        return view('index', compact('specializations', 'specializationa'));
     }
 }
