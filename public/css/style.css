@@ -427,7 +427,9 @@ input[type="text"],
 input[type="tel"],
 input[type="email"],
 select,
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
+
     width: calc(100% - 20px);
     padding: 10px;
     margin: 10px 0;
@@ -440,7 +442,10 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="email"]:focus,
 select:focus,
-input[type="number"]:focus {
+
+input[type="number"]:focus,
+input[type="password"]:focus {
+
     border-color: #FAE013;
     outline: none;
 }
@@ -491,6 +496,7 @@ input[type="number"]:focus {
     height: 500px; /* Фиксированная высота карточки */
     margin-top: 30px;
     text-align: center;
+
 }
 .specialization-card h5{
     text-align: center;
@@ -502,7 +508,174 @@ input[type="number"]:focus {
     height: 300px; /* Автоматическая высота для сохранения пропорций */
     border-radius: 8px; /* Сгладить углы изображения */
 }
+
+.more-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 30px;
+}
 /* Общие стили для изображений */
+
+/* Общие стили для мобильной версии */
+
+/* Общие стили для мобильной версии */
+
+@media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center; /* Центрирование текста на экране */
+    }
+
+    header {
+        margin: 0 10px; /* Уменьшение отступов */
+    }
+
+    header ul {
+        flex-direction: column; /* Упорядочение элементов в столбик */
+        align-items: center; /* Центрирование элементов */
+    }
+
+    header li {
+        font-size: 20px; /* Уменьшение размера шрифта */
+    }
+
+    .main {
+        margin: 30px 10px; /* Уменьшение отступов с границ */
+    }
+
+    h1, h2, h3, h4, h5 {
+        width: 100%; /* Ширина 100% для заголовков */
+        padding: 0 10px; /* Добавление боковых отступов */
+    }
+
+    .what-is p, .about p, .steps p {
+        font-size: 16px; /* Уменьшение размера текста */
+        width: 100%; /* Ширина на 100% для мобильных */
+    }
+
+    .what-is, .steps, .about {
+        margin: 0 10px; /* Уменьшение отступов слева и справа */
+    }
+
+    .btn-send {
+        padding: 10px 20px; /* Уменьшение отступов для кнопки */
+        font-size: 20px; /* Уменьшение размера текста */
+    }
+
+    .callback {
+        width: 100%; /* Увеличение ширины до 100% */
+        padding: 0 10px; /* Добавление боковых отступов */
+    }
+
+    .form-input input {
+        width: 100%; /* Ширина 100% для полей ввода */
+        margin: 10px 0; /* Увеличение отступа между полями */
+    }
+
+    .specialization-cards {
+        flex-direction: column; /* Карточки в одном столбце */
+        align-items: center; /* Центрирование карточек */
+    }
+
+    .specialization-card {
+        width: 90%; /* Ширина карточки 90% */
+        height: auto; /* Автоматическая высота */
+        margin: 20px 0; /* Увеличение отступа между карточками */
+    }
+
+    .specialization-card img {
+        width: 100%; /* Изображение 100% ширины карточки */
+        height: auto; /* Сохранение пропорций */
+    }
+
+    .step-5 {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .step-5 button {
+        margin: 40px 0 40px 0;
+    }
+
+    .alert {
+        font-size: 16px; /* Уменьшение размера текста */
+    }
+
+    .why-we ul {
+        flex-direction: column; /* Упорядочение элементов в столбик */
+        align-items: center; /* Центрирование карточек */
+    }
+
+    .why-we li {
+        margin: 10px 0; /* Отступы между элементами */
+        font-size: 26px; /* Уменьшение размера текста */
+        max-width: 100%; /* Ограничение ширины для мобильных */
+    }
+
+    .form-input {
+        display: none;
+    }
+}
+
+/* для более маленьких экранов (до 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px; /* Еще меньше размер заголовка */
+    }
+
+    h2 {
+        font-size: 20px; /* Уменьшение размера заголовка */
+    }
+
+    h3, h4 {
+        font-size: 24px; /* Уменьшение размера заголовка */
+    }
+
+    h5 {
+        font-size: 20px; /* Уменьшение размера заголовка */
+    }
+
+    .btn-send {
+        padding: 5px 15px; /* Уменьшение отступов для кнопки */
+        font-size: 18px; /* Уменьшение размера текста */
+    }
+
+    .form-info {
+        font-size: 20px; /* Уменьшение размера текста */
+    }
+
+    .callback button {
+        font-size: 20px; /* Уменьшение размера текста кнопки */
+    }
+
+    .specialization-card {
+        width: 95%; /* Ширина карточки 95% для большей мобильности */
+        margin: 15px 0; /* Увеличение отступа между карточками */
+    }
+
+    .callback {
+        display: none;
+    }
+
+    .about ul {
+        flex-direction: row;
+    }
+
+    .about ul img {
+        display: none;
+    }
+
+    .about ul p {
+        margin-left: 0;
+    }
+
+    nav img {
+        margin-bottom: 25px;
+    } 
+}
+
 
 
 
