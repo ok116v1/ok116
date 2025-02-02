@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 maxSpecialtiesError.style.display = 'block'; // Показываем сообщение об ошибке
             }
         }
+
     });
 
     specializationsContainer.addEventListener("click", function(e) {
@@ -79,3 +80,4 @@ window.onclick = function(event) {
         event.target.style.display = 'none';
     }
 }
+

@@ -26,6 +26,7 @@
     <header>
         <nav>
             <ul>
+
                 @auth
                     <li><img src="{{ asset('img/logo.svg') }}" width="400"></li> 
                     <li><a href="#">Работа с иностранными специалистами</a></li>
@@ -36,6 +37,7 @@
                     <li><button class="submit">Выйти</button></li>
                 </form>
                 @else
+
                 <li><img src="{{ asset('img/logo.svg') }}" width="400"></li> 
                 <li><a href="#">Работа с иностранными специалистами</a></li>
                 <li><a href="#">О нас</a></li>
@@ -47,7 +49,6 @@
         </nav>
     </header>
 
-    
     <section class="main">
     @if(session('success'))
     <div class='alert'>
@@ -114,6 +115,7 @@
     <p> (До 5 спец. в одной заявке)</p>
 
     <div id="specializationsContainer">
+
     <div class="specialty-group">
         <select name="specialization[]">
             <option value="" disabled selected>Выберите из списка</option> <!-- По умолчанию -->
@@ -172,16 +174,20 @@
     
     <p id="maxSpecialtiesError" style="color: red; display: none;">Нельзя добавить больше 5 специальностей.</p>
 
+
     <button class="btn-send" type="submit">
         Отправить заявку
         <img src="{{ asset('img/btn-email.svg') }}" alt="Отправить">
     </button>
+
     @else
         <h2>Вы должны <button href="#" id="openLoginModalBtn">войти</button> или <button href="#" id="openRegisterModalBtn">зарегистрироваться</button> для доступа к этой форме.</h2>
         @endauth
+
 </form>
     </div>
 </div>
+
 
 
 
@@ -189,6 +195,7 @@
     <h3>Наш Персонал</h3>
     <div class="specialization-cards">
             @foreach($specializationa as $specialization)
+
                 <div class="specialization-card">
                     <div class="card">
                         <img src="{{ $specialization->photo_url }}" alt="{{ $specialization->name }}" class="card-img-top">
@@ -200,6 +207,7 @@
                         <button class="btn-send openModalBtn">Оставить заявку</button>
                     </div>
                 </div>
+
             @endforeach
         </div>
 
@@ -207,6 +215,7 @@
             <a href="/special" class="more-btn">Показать все специализации</a>
         </div>
     </div>
+
 </section>
 
 <section class="steps">
