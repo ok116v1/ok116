@@ -3,48 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Ваш Отдел Кадров</title>
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        ym(99665810, "init", {
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true
-        });
-        </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/99665810" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
+   ym(99665810, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/99665810" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <header>
         <nav>
             <ul>
-
-                @auth
-                    <li><img src="{{ asset('img/logo.svg') }}" width="400"></li> 
-                    <li><a href="#">Работа с иностранными специалистами</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Контакты</a></li>
-                    <li><h5>Здравствуйте, {{ auth()->user()->name }}</h5></li>
-                <form action="/logout">
-                    <li><button class="submit">Выйти</button></li>
-                </form>
-                @else
-
                 <li><img src="{{ asset('img/logo.svg') }}" width="400"></li> 
                 <li><a href="#">Работа с иностранными специалистами</a></li>
                 <li><a href="#">О нас</a></li>
                 <li><a href="#">Контакты</a></li>
-                <li><button id="openLoginModalBtn">Вход</button></li>
-                <li><button id="openRegisterModalBtn">Регистрация</button></li>
-                @endauth
+                <li><button class="fixed-cart-button" onclick="window.location.href='/cart'">Мой заказ</button></li>
             </ul>
         </nav>
     </header>
@@ -58,43 +44,14 @@
     <h1>Оформление сотрудников вне штата</h1>
     <h2>Работаем по всему Татарстану и РФ</h2>
     <h3>Наш рабочий персонал работает ежедневно/без выходных/праздничных дней, по 10-11 часов в день</h3>
-    <button class="btn-send openModalBtn">Оставить заявку<img src="{{ asset('img/btn-email.svg') }}"></button>
-</section>
-<div class="modal" id="loginModal">
-    <div class="modal-content">
-        <span class="close-btn" id="closeLoginModalBtn">&times;</span>
-        <h2>Вход</h2>
-        <form action="/login" method="POST" id="loginForm">
-            @csrf
-            <input type="email" name="email" placeholder="Введите вашу почту" required>
-            <input type="password" name="password" placeholder="Введите пароль" required>
-            <button type="submit">Войти</button>
-        </form>
-    </div>
-</div>
+    <button class="btn-send" onclick="redirectToCart()">Оставить заявку<img src="{{ asset('img/btn-email.svg') }}"></button>
 
-<!-- Модальное окно для регистрации -->
-<div class="modal" id="registerModal">
-    <div class="modal-content">
-        <span class="close-btn" id="closeRegisterModalBtn">&times;</span>
-        <h2>Регистрация</h2>
-        <form action="/register" method="POST" id="registerForm">
-            @csrf
-            <input type="text" name="name" placeholder="Имя" required>
-            <input type="text" name="surname" placeholder="Фамилия" required>
-            <input type="text" name="patronymic" placeholder="Отчество" required>
-            <input type="email" name="email" placeholder="Почта" required>
-            <input type="phone" name="phone" placeholder="Телефон" required>
-            <input type="password" name="password" placeholder="Пароль" required>
-            <button type="submit">Зарегистрироваться</button>
-        </form>
-    </div>
-</div>
+</section>
+
 <div class="modal" id="modalForm">
     <div class="modal-content">
         <span class="close-btn" id="closeModalBtn">&times;</span>
         <h2>Оставить заявку</h2>
-        @auth
         <form action="/" method="POST" id="applicationForm">
     @csrf
     @if(auth()->check())
@@ -170,20 +127,15 @@
         <input type="number" name="quantity[]" placeholder="Количество">
     </div>
 </div>
+
     
     
     <p id="maxSpecialtiesError" style="color: red; display: none;">Нельзя добавить больше 5 специальностей.</p>
-
 
     <button class="btn-send" type="submit">
         Отправить заявку
         <img src="{{ asset('img/btn-email.svg') }}" alt="Отправить">
     </button>
-
-    @else
-        <h2>Вы должны <button href="#" id="openLoginModalBtn">войти</button> или <button href="#" id="openRegisterModalBtn">зарегистрироваться</button> для доступа к этой форме.</h2>
-        @endauth
-
 </form>
     </div>
 </div>
@@ -193,30 +145,27 @@
 
 <section class="our_personal">
     <h3>Наш Персонал</h3>
-    <div class="specialization-cards">
-            @foreach($specializationa as $specialization)
-
-                <div class="specialization-card">
-                    <div class="card">
-                        <img src="{{ $specialization->photo_url }}" alt="{{ $specialization->name }}" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $specialization->name }}</h5>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="btn-send openModalBtn">Оставить заявку</button>
+    <div class="row">
+        @foreach($specializationss as $specialization)
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ $specialization->photo_url }}" class="card-img-top" alt="{{ $specialization->name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $specialization->name }}</h5>
+                        <form action="{{ route('cart.add') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="specialization_id" value="{{ $specialization->id }}">
+                            <button type="submit" class="btn btn-primary">Заказать</button>
+                        </form>
                     </div>
                 </div>
-
-            @endforeach
-        </div>
-
-        <div class="more">
-            <a href="/special" class="more-btn">Показать все специализации</a>
-        </div>
+            </div>
+        @endforeach
     </div>
+    <a href="/staff" class="moree">Смотреть все</a>
 
 </section>
+
 
 <section class="steps">
     <h4>Шаги наших клиентов</h4>
@@ -258,7 +207,7 @@
     </div>
 </section>
 <section class = "about">
-    <h4>Аутстаффинг – это для вас, если Вы хотите</h4>
+    <h4>Ваш Отдел Кадров – это для вас, если Вы хотите</h4>
     <ul>
         <li><img src="{{ asset('img/checkbox.svg') }}"> <p>Сэкономить время и деньги</p></li>
         <li><img src="{{ asset('img/checkbox.svg') }}"> <p>Нанять сотрудников на временные должности</p></li>

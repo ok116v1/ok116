@@ -427,9 +427,7 @@ input[type="text"],
 input[type="tel"],
 input[type="email"],
 select,
-input[type="number"],
-input[type="password"] {
-
+input[type="number"] {
     width: calc(100% - 20px);
     padding: 10px;
     margin: 10px 0;
@@ -442,10 +440,7 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="email"]:focus,
 select:focus,
-
-input[type="number"]:focus,
-input[type="password"]:focus {
-
+input[type="number"]:focus {
     border-color: #FAE013;
     outline: none;
 }
@@ -477,6 +472,145 @@ input[type="password"]:focus {
 }
 
 
+/* Основной стиль для контейнера */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Заголовок */
+h3 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Стиль для карточек */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.col-md-4 {
+    flex: 1 1 calc(33.3333% - 20px);
+    max-width: calc(33.3333% - 20px);
+}
+
+/* Стиль для каждой карточки */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    background-color: #fff;
+    position: relative;
+    color: #000000;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Название специальности */
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Кнопка заказа */
+.btn {
+    background-color: #FAE013;
+    color: #000000;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f1d70d;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e2e6ea;
+}
+
+.table th {
+    background-color: #FAE013;
+    color: rgb(0, 0, 0);
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table td {
+    font-size: 16px;
+}
+
+
+.moree {
+    background-color: #FAE013;
+    margin: auto;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #000000;
+}
+
+.moree:hover {
+    background-color: #f1d70d;
+}
+
 
 .specialization-cards {
     display: flex;
@@ -496,7 +630,6 @@ input[type="password"]:focus {
     height: 500px; /* Фиксированная высота карточки */
     margin-top: 30px;
     text-align: center;
-
 }
 .specialization-card h5{
     text-align: center;
@@ -507,13 +640,6 @@ input[type="password"]:focus {
     width: 400px; /* Автоматическая ширина для сохранения пропорций */
     height: 300px; /* Автоматическая высота для сохранения пропорций */
     border-radius: 8px; /* Сгладить углы изображения */
-}
-
-.more-btn{
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    font-size: 30px;
 }
 /* Общие стили для изображений */
 
@@ -675,7 +801,3 @@ input[type="password"]:focus {
         margin-bottom: 25px;
     } 
 }
-
-
-
-
