@@ -15,6 +15,9 @@ window.addEventListener('click', (event) => {
         modal.style.display = 'none';
     }
 });
+function redirectToCart() {
+    window.location.href = '/cart'; // Перенаправляет на страницу /cart
+}
 
 // new string for form
 document.addEventListener("DOMContentLoaded", function() {
@@ -43,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 maxSpecialtiesError.style.display = 'block'; // Показываем сообщение об ошибке
             }
         }
-
     });
 
     specializationsContainer.addEventListener("click", function(e) {
@@ -52,32 +54,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
-
-// Открытие модального окна для входа
-document.getElementById('openLoginModalBtn').onclick = function() {
-    document.getElementById('loginModal').style.display = 'block';
-}
-
-// Закрытие модального окна для входа
-document.getElementById('closeLoginModalBtn').onclick = function() {
-    document.getElementById('loginModal').style.display = 'none';
-}
-
-// Открытие модального окна для регистрации
-document.getElementById('openRegisterModalBtn').onclick = function() {
-    document.getElementById('registerModal').style.display = 'block';
-}
-
-// Закрытие модального окна для регистрации
-document.getElementById('closeRegisterModalBtn').onclick = function() {
-    document.getElementById('registerModal').style.display = 'none';
-}
-
-// Закрытие модальных окон при клике вне их области
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-    }
-}
-

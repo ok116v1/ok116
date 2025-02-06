@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\CallBackController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SpecialController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', [ApplicationController::class, 'showIndex']);
 
@@ -15,9 +14,8 @@ Route::get('/c', [CallBackController::class, 'index']);
 Route::post('/c', [CallBackController::class, 'storecall']);
 
 
-Route::post('/register', [RegisterController::class, 'register']);
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout']);
-
-Route::get('/special', [SpecialController::class, 'index']);
+Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
