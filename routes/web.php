@@ -19,3 +19,4 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
+Route::post('/staff', [StaffController::class, 'sendEmail'])->name('request');
