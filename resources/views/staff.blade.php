@@ -51,9 +51,54 @@
             cursor: pointer;
             z-index: 1000; /* Убедитесь, что кнопка будет поверх других элементов */
         }
+
+        .not-found h3 {
+            max-width: 90%; /* Ограничиваем максимальную ширину */
+            margin: 35px auto; /* Центрируем контейнер */
+        }
+
+        .not-found form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    .not-found form input,
+    .not-found form button {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .not-found form input {
+        width: 100%;
+    }
+
+    .not-found form button {
+        background-color: #FAE013;
+        color: black;
+        cursor: pointer;
+    }
     </style>
 </head>
 <body>
+
+<header>
+        <nav>
+            <ul>
+                <li><a href="/"><img src="{{ asset('img/logo.svg') }}" width="400"></a></li> 
+                <li><a href="#">Работа с иностранными специалистами</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><button class="fixed-cart-button" onclick="window.location.href='/cart'">Мой заказ</button></li>
+            </ul>
+        </nav>
+    </header>
+
 <div class="container">
     <h3>Наш персонал</h3>
     <div class="row">
@@ -74,6 +119,20 @@
         @endforeach
     </div>
 </div>
+
+<section class="not-found">
+        <h3>Не нашли нужную специальность? Свяжитесь с нами и подберем специалиста под любые ваши задачи!</h3>
+        <form action="{{ route('request') }}" method="POST">
+            @csrf
+            <input type="email" name="email" placeholder="Эл. почта" required>
+            <input type="text" name="text" placeholder="Специальности" required>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+        @if(session('success'))
+    <div>{{ session('success') }}</div>
+@endif
+
+</section>
 
 <!-- Уведомление -->
 <div id="orderNotification" style="display: none; position: fixed; bottom: 20px; left: 20px; padding: 10px 20px; background-color: #28a745; color: white; border-radius: 5px;">
