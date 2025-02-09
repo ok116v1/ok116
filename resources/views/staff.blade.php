@@ -83,6 +83,36 @@
         color: black;
         cursor: pointer;
     }
+    .quantity-selector {
+    display: flex;
+    align-items: center; /* Центрируем кнопки и ввод по вертикали */
+}
+
+.quantity-selector button {
+    background-color: #FAE013; /* Цвет фона кнопок */
+    color: white; /* Цвет текста кнопок */
+    border: none; /* Убираем обводку */
+    border-radius: 5px; /* Скругление углов */
+    padding: 10px; /* Отступы внутри кнопок */
+    font-size: 18px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    width: 40px; /* Фиксированная ширина кнопок */
+    transition: background-color 0.3s; /* Плавный переход для цвета фона */
+}
+
+.quantity-selector button:hover {
+    background-color:rgb(245, 226, 85); /* Цвет при наведении */
+}
+
+.quantity-input {
+    text-align: center; /* Центрируем текст в поле ввода */
+    width: 60px; /* Фиксированная ширина поля ввода */
+    margin: 0 10px; /* Отступы между кнопками и полем ввода */
+    padding: 10px; /* Отступы внутри поля ввода */
+    font-size: 18px; /* Размер шрифта */
+    border: 1px solid #ccc; /* Обводка поля ввода */
+    border-radius: 5px; /* Скругление углов поля ввода */
+}
     </style>
 </head>
 <body>
@@ -99,7 +129,7 @@
         </nav>
     </header>
 
-<div class="container">
+    <div class="container">
     <h3>Наш персонал</h3>
     <div class="row">
         @foreach($specializations as $specialization)
@@ -108,11 +138,16 @@
                     <img src="{{ $specialization->photo_url }}" class="card-img-top" alt="{{ $specialization->name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $specialization->name }}</h5>
-                        <form action="{{ route('cart.add') }}" method="POST" onsubmit="return showOrderNotification(event)">
-                            @csrf
-                            <input type="hidden" name="specialization_id" value="{{ $specialization->id }}">
-                            <button type="submit" class="btn btn-primary">Заказать</button>
-                        </form>
+                        <form action="{{ route('cart.add') }}" method="POST" onsubmit="return showOrderNotification(event, this)">
+                        @csrf
+                        <input type="hidden" name="specialization_id" value="{{ $specialization->id }}">
+                        <div class="quantity-selector">
+                            <button type="button" class="decrement">-</button>
+                            <input type="number" name="quantity" class="quantity-input" value="1" min="1">
+                            <button type="button" class="increment">+</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Заказать</button>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -143,24 +178,54 @@
 <button class="fixed-button" onclick="window.scrollTo(0, 0)">Вверх</button>
 
 <!-- Фиксированная кнопка для корзины -->
-<button class="fixed-cart-button" onclick="window.location.href='/cart'">Корзина</button>
+<button class="fixed-cart-button" onclick="window.location.href='/cart'">Мой заказ</button>
 
 <script>
-    // Функция для отображения уведомления
-    function showOrderNotification(event) {
-        event.preventDefault();  // Останавливаем отправку формы для предотвращения перезагрузки страницы
-        
-        // Показываем уведомление
-        var notification = document.getElementById("orderNotification");
-        notification.style.display = "block";
+     document.addEventListener('DOMContentLoaded', function() {
+        const incrementButtons = document.querySelectorAll('.increment');
+        const decrementButtons = document.querySelectorAll('.decrement');
+        const quantityInputs = document.querySelectorAll('.quantity-input');
 
-        // Прячем уведомление через 3 секунды
-        setTimeout(function() {
-            notification.style.display = "none";
-            // После того, как уведомление исчезло, отправляем форму
-            event.target.submit();
-        }, 3000);
-    }
+        incrementButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                input.value = parseInt(input.value) + 1;
+            });
+        });
+
+        decrementButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.nextElementSibling;
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
+                }
+            });
+        });
+
+        quantityInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (parseInt(this.value) < 1) {
+                    this.value = 1;
+                }
+            });
+        });
+    });
+
+    // Функция для отображения уведомления
+    function showOrderNotification(event, form) {
+    event.preventDefault();  // Останавливаем отправку формы для предотвращения перезагрузки страницы
+
+    // Показываем уведомление
+    var notification = document.getElementById("orderNotification");
+    notification.style.display = "block";
+
+    // Прячем уведомление через 3 секунды
+    setTimeout(function() {
+        notification.style.display = "none";
+        // После того, как уведомление исчезло, отправляем форму
+        form.submit();
+    }, 30);
+}
 </script>
 </body>
 </html>

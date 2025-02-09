@@ -5,28 +5,37 @@ namespace App\Http\Controllers;
 use App\Models\Specialization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session; // Добавьте эту строку
 use App\Mail\OrderPlaced;
 
 class CartController extends Controller
 {
-    public function add(Request $request)
+    public function addToCart(Request $request)
     {
-        $specialization = Specialization::findOrFail($request->specialization_id);
-        $cart = session()->get('cart', []);
-        
-        if(isset($cart[$specialization->id])) {
-            $cart[$specialization->id]['quantity']++;
+        $specializationId = $request->input('specialization_id');
+        $quantity = $request->input('quantity'); // Получаем количество из формы
+        $specialization = Specialization::find($specializationId); // Находим специальность
+
+        if (!$specialization) {
+            return redirect()->back()->with('error', 'Специальность не найдена.');
+        }
+
+        $cart = Session::get('cart', []);
+
+        if (isset($cart[$specializationId])) {
+            // Если специальность уже в корзине, увеличиваем количество
+            $cart[$specializationId]['quantity'] += $quantity;
         } else {
-            $cart[$specialization->id] = [
+            // Если нет, добавляем новую запись
+            $cart[$specializationId] = [
                 "name" => $specialization->name,
-                "quantity" => 1,
-                "price" => $specialization->price,
-                "photo" => $specialization->photo_url
+                "quantity" => $quantity,
+                "photo" => $specialization->photo_url,
             ];
         }
-        
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Специальность добавлена в корзину!');
+
+        Session::put('cart', $cart); // Обновляем сессию
+        return redirect()->back()->with('success', 'Специальность добавлена в корзину.');
     }
 
     public function index()

@@ -15,7 +15,7 @@ Route::post('/c', [CallBackController::class, 'storecall']);
 
 
 Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
