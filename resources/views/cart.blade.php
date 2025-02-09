@@ -25,7 +25,7 @@
 <body>
 <div class="container">
     <a href = "/staff"><h3>Назад</h3></a>
-    <h3>Корзина</h3>
+    <h3>Мой Заказ</h3>
     @if(session('cart'))
         <table class="table">
             <thead>
