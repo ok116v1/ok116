@@ -155,7 +155,7 @@
     </div>
 </div>
 
-<section class="not-found">
+<section class="not-found" id="not-found">
         <h3>Не нашли нужную специальность? Свяжитесь с нами и подберем специалиста под любые ваши задачи!</h3>
         <form action="{{ route('request') }}" method="POST">
             @csrf

@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="icon" href="{{ asset('img/logo2.svg') }}" type="image/svg">
+    <style>
+        .main {
+            background-image: url('img/main.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white; /* Пример цвета текста на фоне */
+            margin:0;
+            height:1080px;
+        }
+        .main h3{
+            color:white;
+        }
+        header{
+            margin-top:0;
+        }
+    </style>
     <title>Ваш Отдел Кадров</title>
     <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -45,7 +63,16 @@
     <h2>Работаем по всему Татарстану и РФ</h2>
     <h3>Наш рабочий персонал работает ежедневно/без выходных/праздничных дней, по 10-11 часов в день</h3>
     <button class="btn-send" onclick="redirectToCart()">Оставить заявку<img src="{{ asset('img/btn-email.svg') }}"></button>
+</section>
 
+<section class="our-advantages">
+    <h2>Наши преимущества</h2>
+    <div class="advantages">
+        <p><img src="{{ asset('img/ex-mark.svg') }}">Работники числятся у нас в штате. Вам не требуется оплачивать отпускные, больничные, переработки, а также работу в праздничные и выходные дни. Это является выгодным для вас решением.</p>
+        <p><img src="{{ asset('img/ex-mark.svg') }}">Все вопросы, связанные с отчётностью, налогами и штрафами, мы берём на себя.</p>
+        <p><img src="{{ asset('img/ex-mark.svg') }}">Ежемесячно мы предоставляем бухгалтерское, кадровое и юридическое сопровождение.</p>
+        <p><img src="{{ asset('img/ex-mark.svg') }}">Сокращение работы кадровой и бухгалтерской службы у вас позволит значительно снизить затраты на административные расходы.</p>
+        <p><img src="{{ asset('img/ex-mark.svg') }}">Рабочий день наших людей составляет 11 часов ежедневно, без учета праздничных и выходных дней.</p>
 </section>
 
 <div class="modal" id="modalForm">
@@ -163,7 +190,7 @@
         @endforeach
     </div>
     <a href="/staff" class="moree">Смотреть все</a>
-
+    <a href="/staff#not-found" class="moree">Не нашли кого искали?</a>
 </section>
 
 
